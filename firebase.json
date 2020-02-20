@@ -1,10 +1,21 @@
 {
-  "hosting": {
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+    "hosting": {
+        "redirects": [{
+            "source": "/about",
+            "destination": "/",
+            "type": 301
+        }, {
+
+            "source": "/contact",
+            "destination": "/",
+            "type": 302
+
+        }],
+        "public": "public",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    }
 }
