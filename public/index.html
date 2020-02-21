@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/b877ef2cb5.js" crossorigin="anonymous"></script>
 </head>
 
@@ -22,45 +30,54 @@
         <div class="Container-form">
             <article>
                 <h1>Create New Customers Bill</h1>
-                <label for="">Full Names</label>
-                <input type="text">
-                <textarea name="" id="maintext" placeholder="input your text here"></textarea>
+                <form id="application1" action="">
+                    <label for="">Full Name:</label>
+                    <input id="fullnameText" name="fullname1" type="text"> <br>
+                    <label for="">Address:</label>
+                    <input id="addressText" name="address1" type="text"> <br>
+                    <label for="">Postcode:</label>
+                    <input id="postcodeText" type="text"> <br>
 
-                <a id="submitBtn1" onclick=" datasubmitbtn()" class="btn"> <i class="fas fa-arrow-alt-circle-right"></i> </a>
+                    <a id="submitBtn1" onclick="datasubmitbtn()" class="btn"> <i class="fas fa-arrow-alt-circle-right"></i> </a>
+                </form>
 
+                <table id="customerslist"> </table>
             </article>
         </div>
     </div>
 
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCkCJo780tepm-_We0--GUUoMg98mLTCII",
-            authDomain: "bills-a5e31.firebaseapp.com",
-            databaseURL: "https://bills-a5e31.firebaseio.com",
-            projectId: "bills-a5e31",
-            storageBucket: "bills-a5e31.appspot.com",
-            messagingSenderId: "458250141540",
-            appId: "1:458250141540:web:fe3b4a319cb3dc7a064471",
-            measurementId: "G-2EY3K9XDQK"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
-
-
-    <script src="script.js"></script>
 </body>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+
+<script>
+    // Your web app's Firebase configuration
+
+    // need to create json folder for apikey
+    var firebaseConfig = {
+        apiKey: "AIzaSyCkCJo780tepm-_We0--GUUoMg98mLTCII",
+        authDomain: "bills-a5e31.firebaseapp.com",
+        databaseURL: "https://bills-a5e31.firebaseio.com",
+        projectId: "bills-a5e31",
+        storageBucket: "bills-a5e31.appspot.com",
+        messagingSenderId: "458250141540",
+        appId: "1:458250141540:web:fe3b4a319cb3dc7a064471",
+        measurementId: "G-2EY3K9XDQK"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.analytics();
+</script>
+
+
+<script src="script.js"></script>
 
 </html>

@@ -72,20 +72,34 @@ body {
 }
 
 .container {
-  width: 50%;
+  width: 50% auto;
   height: 100% auto;
   background-color: lightgrey;
   border: 15px solid #02635e;
-  padding: 50px;
   margin: auto;
   font-size: 36px;
 }
 
-@media screen and (max-width: 600px) {
-  .column,
-  input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
+.Container-form {
+  font-size: 20px;
+  text-align: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width: 680px;
+  margin: 2% auto 1%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 /*# sourceMappingURL=style.css.map */
