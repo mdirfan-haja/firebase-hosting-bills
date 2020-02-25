@@ -31,14 +31,24 @@
             <article>
                 <h1>Create New Customers Bill</h1>
                 <form id="application1" action="">
-                    <label for="">Full Name:</label>
-                    <input id="fullnameText" name="fullname1" type="text"> <br>
-                    <label for="">Address:</label>
-                    <input id="addressText" name="address1" type="text"> <br>
-                    <label for="">Postcode:</label>
-                    <input id="postcodeText" type="text"> <br>
+                    <fieldset>
+                        <label for="">Full Name:</label>
+                        <input id="fullnameText" name="fullname1" type="text"> <br>
+                        <label for="">Address:</label>
+                        <input id="addressText" placeholder="House Number / Flat No:" name="address1" type="text"> <br>
+                        <span>  .............. </span>
+                        <input id="addressText2" placeholder="Street Name" name="address2" type="text"> <br>
+                        <span>  .............. </span>
+                        <input id="addressText3" placeholder="City" name="address3" type="text"> <br>
+                        <label for="">Postcode:</label>
+                        <input id="POSTCODE1" name="postcodeText" type="text"> <br>
+                        <label for="">Sun</label>
+                        <input id="suntext1" name="sun1" type="text"> <br>
 
-                    <a id="submitBtn1" onclick="datasubmitbtn()" class="btn"> <i class="fas fa-arrow-alt-circle-right"></i> </a>
+
+
+                        <a id="submitBtn1" onclick="datasubmitbtn()" class="btn"> <i class="fas fa-arrow-alt-circle-right"></i> </a>
+                    </fieldset>
                 </form>
 
                 <table id="customerslist"> </table>

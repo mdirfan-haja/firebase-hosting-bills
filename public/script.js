@@ -8,43 +8,90 @@ const applicationForm = document.getElementById('application1')
     //var postCode = document.getElementById('postcodeText')
     //var homeAdderss = document.getElementById('addressText')
 
+
+// this function render the data from server to website
 function renderCustmoers(doc) {
-    let span = document.createElement('tr')
-    let fullname = document.createElement('th')
-    let address = document.createElement('th')
-    let postCode = document.createElement('th')
+    // tr=table row and th = 
+    let row = document.createElement('tr')
+    let fullname = document.createElement('td')
+    let address = document.createElement('td')
+    let address2 = document.createElement('td')
+    let address3 = document.createElement('td')
+    let postCode = document.createElement('td')
+        //let newsPaperSun = document.createElement('td')
+    let cross = document.createElement('button')
 
+    // data-id is unique id from firestore!
 
-    span.setAttribute('data-id', doc.id)
+    row.setAttribute('data-id', doc.id)
     fullname.textContent = doc.data().fullname
     address.textContent = doc.data().Address
+    address2.textContent = doc.data().streetname
+    address3.textContent = doc.data().cityname
     postCode.textContent = doc.data().postcode
+        // newsPaperSun.textContent = doc.data().sun
+    cross.textContent = 'x'
 
-    span.appendChild(fullname)
-    span.appendChild(address)
-    span.appendChild(postCode)
+    row.appendChild(fullname)
+    row.appendChild(address)
+    row.appendChild(address2)
+    row.appendChild(address3)
+    row.appendChild(postCode)
+        //row.appendChild(newsPaperSun)
+    row.appendChild(cross)
 
-    customersList.appendChild(span)
+
+    // tp delete data in firestore cloud
+    customersList.appendChild(row)
+    cross.addEventListener('click', (e) => {
+        e.stopPropagation()
+        let id = e.target.parentElement.getAttribute('data-id')
+        db.collection('customers').doc(id).delete()
+    })
 }
 
 //getting data from firestors
+// ('postcode', '>', 'b2') '>' choose greather then to search 
+//.where and .orderBy to locat name and order be alphabat 
+
+/*
 db.collection('customers').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         renderCustmoers(doc)
     })
 })
+*/
 
 //saving data to firestore
 function datasubmitbtn() {
     applicationForm.addEventListener('submit', (e) => {
+        //preventDefault prevent the link from follow the url
         e.preventDefault
     })
     db.collection('customers').add({
+        //fullname: Address: postcode: its from firebase cloud
         fullname: applicationForm.fullname1.value,
-        Address: applicationForm.address1.value
+        Address: applicationForm.address1.value,
+        postcode: applicationForm.postcodeText.value,
+        streetname: applicationForm.address2.value,
+        cityname: applicationForm.address3.value
+            //sun: applicationForm.sun1.value
     })
 
+    // empty the value string in textbox
+    applicationForm.fullname1.value = ''
+    applicationForm.address1.value = ''
+    applicationForm.postcodeText.value = ''
+    applicationForm.address2.value = ''
+    applicationForm.address3.value = ''
+        // applicationForm.sun1.value = ''
+
 }
+
+db.collection('customers').orderBy('streetname').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges()
+
+})
 
 
 

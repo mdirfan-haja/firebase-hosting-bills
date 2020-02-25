@@ -46,6 +46,14 @@ ul li a {
   text-transform: uppercase;
 }
 
+button {
+  cursor: pointer;
+}
+
+span {
+  visibility: hidden;
+}
+
 .btn {
   color: white;
   text-align: center;
