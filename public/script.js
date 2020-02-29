@@ -90,7 +90,9 @@ function datasubmitbtn() {
 
 db.collection('customers').orderBy('streetname').onSnapshot(snapshot => {
     let changes = snapshot.docChanges()
-
+    changes.forEach(change => {
+        console.log(change.doc.data())
+    });
 })
 
 
